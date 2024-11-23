@@ -6,8 +6,8 @@ int val;
 int pinServo1 = 6; // Enter pin for Servo1
 int pinLDR = 2; // Enter pin for LDR - Light Dependent Resistor
 int signalLDRValue = 1010; // Value for LDR - Light Dependent Resistor
-int angleOne = 70; // Angle one value
-int angleTwo = 18; // Angle two value
+int angleOne = 90; // Angle one value (old value 70)
+int angleTwo = 0; // Angle two value (old value 18)
 int delayValue = 2000; // Time delay value (ms)
 
 // DON'T TOUCH CODE BELOW //

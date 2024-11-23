@@ -8,8 +8,8 @@ int pinServo1 = 6; // Enter pin for Servo1
 int pinServo2 = 7; // Enter pin for Servo2
 int pinLDR = 2; // Enter pin for LDR - Light Dependent Resistor
 int signalLDRValue = 1010; // Value for LDR - Light Dependent Resistor
-int angleOne = 70; // Angle one value
-int angleTwo = 18; // Angle two value
+int myServo1AngleOne = 180; // Angle one value (old value 70)
+int myServo1AngleTwo = 90; // Angle two value (old value 18)
 int delayValue = 2000; // Time delay value (ms)
 int cntLight = 0; // Light counter
 
@@ -30,13 +30,13 @@ void loop() {
   {
     if (cntLight == 0)
     {
-      myServo1.write(angleOne);
+      myServo1.write(myServo1AngleOne);
       delay(delayValue);
       cntLight = 1;
     }
     if (cntLight == 2)
     {
-      myServo2.write(angleOne);
+      myServo2.write(myServo1AngleTwo);
       delay(delayValue);
       cntLight = 3;
     }
