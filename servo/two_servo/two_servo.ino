@@ -8,8 +8,8 @@ int pinServo1 = 6; // Enter pin for Servo1
 int pinServo2 = 7; // Enter pin for Servo2
 int pinLDR = 2; // Enter pin for LDR - Light Dependent Resistor
 int signalLDRValue = 1010; // Value for LDR - Light Dependent Resistor
-int myServo1AngleOne = 180; // Angle one value (old value 70)
-int myServo1AngleTwo = 90; // Angle two value (old value 18)
+int myServo1AngleOne = 90; // Angle one value (old value 70)
+int myServo2AngleOne = 90; // Angle one value (old value 70)
 int delayValue = 2000; // Time delay value (ms)
 int cntLight = 0; // Light counter
 
@@ -18,8 +18,6 @@ int cntLight = 0; // Light counter
 void setup() {
   // put your setup code here, to run once:(val >= 1010) 
   Serial.begin(9600);
-  myServo1.attach(pinServo1);  //Pin where Servo1 motor signal is conected.
-  myServo2.attach(pinServo2);  //Pin where Servo2 motor signal is conected.
 }
 
 void loop() {
@@ -30,13 +28,15 @@ void loop() {
   {
     if (cntLight == 0)
     {
+      myServo1.attach(pinServo1);  //Pin where Servo1 motor signal is conected.
       myServo1.write(myServo1AngleOne);
       delay(delayValue);
       cntLight = 1;
     }
     if (cntLight == 2)
     {
-      myServo2.write(myServo1AngleTwo);
+      myServo2.attach(pinServo2);  //Pin where Servo2 motor signal is conected.
+      myServo2.write(myServo2AngleOne);
       delay(delayValue);
       cntLight = 3;
     }
@@ -45,13 +45,13 @@ void loop() {
   {
     if (cntLight == 1)
     {
-      myServo1.write(angleTwo);
+      myServo1.detach();
       delay(delayValue);
       cntLight = 2;
     }
     if (cntLight == 3)
     {
-      myServo2.write(angleTwo);
+      myServo2.detach();
       delay(delayValue);
       cntLight = 0;
     }
